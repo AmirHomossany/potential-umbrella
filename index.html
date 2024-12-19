@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lib vs lie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>lib vs lie</h1>
+        <p>Is it lib vs just a lie? You decide!</p>
+    </header>
+    
+    <main>
+        <!-- Game Instructions Page -->
+        <div id="intro-page" class="intro-page">
+            <h2>Welcome to lib vs lie!</h2>
+            <p>In this game, you'll be presented with a quote. You need to guess if it's "lib" vs "lie" After each guess, you'll get feedback.</p>
+            <p>Click "Start" to begin.</p>
+            <button id="start-button">Start</button>
+        </div>
+
+        <!-- Quote Guessing Page (Initially Hidden) -->
+        <div id="game-page" class="game-page" style="display: none;">
+            <div class="quote-container">
+                <p id="main-quote">Quote will appear here...</p>
+            </div>
+            <div class="buttons">
+                <button id="lib-button">lib</button>
+                <button id="lie-button">lie</button>
+            </div>
+            <div id="feedback-container" class="feedback-container" style="display: none;">
+                <p id="feedback-message"></p>
+                <p id="quote-source" style="display: none;">Source: <span id="source-text"></span></p>
+                <button id="next-button" style="display: none;">Next</button>
+            </div>
+            <div id="score-board" class="score-board">
+                <p id="score">Score: 0</p>
+                <p id="remaining-quotes">Remaining Quotes: 5</p>
+            </div>
+        </div>
+
+        <!-- Game Over Page (Initially Hidden) -->
+        <div id="game-over-page" class="game-over-page" style="display: none;">
+            <h2>Game Over!</h2>
+            <p id="final-score">Your Score: 0</p>
+            <div class="buttons">
+                <button id="share-score-button">Share Score</button>
+                <button id="try-again-button">Try Again</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 lib vs lie</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
