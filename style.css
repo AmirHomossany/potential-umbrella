@@ -1,5 +1,5 @@
 header {
-    background-color: #2a9d8f;
+    background-color: #ae212f;
     color: white;
     padding: 20px;
     text-align: center;
@@ -24,14 +24,14 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #e76f51;
+    background-color: #2b3aa7;
     color: white;
 }
 button:hover {
-    background-color: #d35400;
+    background-color: #528eff;
 }
 footer {
-    background-color: #264653;
+    background-color: #ae212f;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -44,7 +44,7 @@ footer {
     padding: 20px;
     max-width: 600px;
     background-color: #f4f4f9;
-    border: 2px solid #2a9d8f;
+    border: 2px solid #f4f4f9;
     border-radius: 10px;
     font-size: 20px;
     font-style: italic;
