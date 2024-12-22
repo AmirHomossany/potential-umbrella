@@ -1,15 +1,8 @@
 // Repository of quotes with sources
 const quotes = [
-    { text: "Unless Trump is hiding under a table, I bet he is throwing ketchup because he is going to be minimized because he was bought and paid for by Elon Musk.", source: "https://www.dailykos.com/stories/2024/12/19/2292883/-President-Musk-Can-you-hear-Trump-throwing-Ketchup", islib: true },
-    { text: "It is not migration that is the problem, but nationalism, white supremacy and the highly policed borders that require dangerous border crossings.", source: "https://www.tandfonline.com/doi/full/10.1080/01419870.2021.1909743?", islib: true },
-    { text: "Ultimately, if expanded, a feminist commons could replace the exclusionary format of nation-states", source: "https://signsjournal.org/covid/ticktin/", islib: true },
-    { text: "The central intent of policing is to surveil, terrorize, capture, and kill marginalized populations, specifically Black folks.", source: "https://level.medium.com/the-demand-for-abolition-979c759ff6f", islib: true },
-    { text: "In much of popular culture Black officers are no longer race men at all — but, rather, stand-ins for the very anti-Black violence directed at Black communities.", source: "https://level.medium.com/pop-culture-helped-turn-police-officers-into-rock-stars-and-black-folks-into-criminals-1ac9e3faffa1", islib: true },
-    { text: "Milk is a Symbol of Colonial Oppression: Activists Demand Rebranding of Dairy Products", source: "https://www.theguardian.com/education/2017/oct/19/cambridge-university-issues-trigger-warnings-for-shakespeare-lecture", islib: false },
-    { text: "Universities to Implement Trigger Warnings for Shakespearean Texts: 'Macbeth' Deemed Problematic", source: "Fake", islib: true },
-    { text: "Stop Saying 'Good Morning': Study Finds Greeting Reinforces Capitalist Productivity Norms", source: "Fake", islib: false },
-    { text: "Teaching of math as an objective science disregards cultural contributions and prioritizes Western ways of knowing.", source: "Fake", islib: false },
-    { text: "Children should be taught that fairy tales like 'Goldilocks' perpetuate harmful ideas of property and entitlement, which are rooted in settler-colonial ideologies.", source: "Fake", islib: false },
+    { text: "TrueTest 1", source: "https://signsjournal.org", istrue: true, fellforit: false, baited: " " },
+    { text: "FalseTest 1", source: "https://google.com", istrue: false, fellforit: false, baited: " " },
+    { text: "FalseTest 2", source: "https://facebook.com", istrue: false, fellforit: true, baited: "The Sun" },
 ];
 
 // Variables for game tracking
@@ -22,6 +15,7 @@ function startGame() {
     document.getElementById("intro-page").style.display = "none";  // Hide intro
     document.getElementById("game-page").style.display = "block";  // Show game
     document.getElementById("game-over-page").style.display = "none";  // Hide game over page
+    document.getElementById("game-over-page2").style.display = "none";  // Hide game end screen 2
     document.getElementById("score").textContent = `Score: ${score}`;
     displayRandomQuote();
 }
@@ -62,31 +56,35 @@ function handleVote(userChoice) {
     // Show feedback
     feedbackContainer.style.display = "block";
 
-    if (userChoice === currentQuote.islib) {
+    if (userChoice === currentQuote.istrue) {
         feedbackMessage.textContent = "Correct!";
         score++;  // Increment score
-        sourceText.textContent = currentQuote.source;
-        quoteSource.style.display = "block";
+
+        // Create a button that hyperlinks to the source if the quote is true
+        if (currentQuote.istrue) {
+            sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+            quoteSource.style.display = "block";
+        }
+
+        // Update score display immediately
         document.getElementById("score").textContent = `Score: ${score}`;
+
+        // Show the "Next" button
         document.getElementById("next-button").style.display = "inline-block";
     } else {
         feedbackMessage.textContent = "Incorrect!";
-        endGame(); // End game if the answer is incorrect
+        if (!currentQuote.istrue && currentQuote.fellforit) {
+            endGameScreen2(); // Direct to game end screen 2 if the answer is incorrect and fellforit is true
+        } else if (currentQuote.istrue) {
+            endGameScreen3(); // Direct to game end screen 3 if the answer is incorrect and istrue is true
+        } else {
+            endGame(); // End game if the answer is incorrect
+        }
     }
 
-    totalQuestionsAnswered++; // Increment total questions answered
-
-    // Update score display
-    document.getElementById("score").textContent = `Score: ${score}`;
-    
     // Hide the "Real" and "Fake" buttons
     document.getElementById("lib-button").style.display = "none";
     document.getElementById("lie-button").style.display = "none";
-
-    // Show the "Next" button
-    function displayRandomQuote() {
-        displayRandomQuote();
-    }
 }
 
 // Function to end the game and show the score page
@@ -97,6 +95,57 @@ function endGame() {
     // Show game over page with final score
     document.getElementById("game-over-page").style.display = "block";
     document.getElementById("final-score").textContent = `Your Score: ${score}`;
+
+    // If the current quote is true, show the source button
+    if (currentQuote.istrue) {
+        const sourceText = document.getElementById("game-over-source-text");
+        sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+        document.getElementById("game-over-quote-source").style.display = "block";
+    } else {
+        // Handle the case where istrue: false and fellforit: false
+        document.getElementById("game-over-quote-source").style.display = "none";
+    }
+
+    // Reset score and quotes for retry
+    score = 0;
+    remainingQuotes = [...quotes];  // Reset the pool
+    document.getElementById("score").textContent = `Score: ${score}`;
+    document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
+}
+
+// Function to end the game and show the secondary game end screen
+function endGameScreen2() {
+    // Hide game page
+    document.getElementById("game-page").style.display = "none";
+
+    // Show game end screen 2 with final score
+    document.getElementById("game-over-page2").style.display = "block";
+    document.getElementById("baited-text").textContent = currentQuote.baited;
+
+    // Show the source button
+    const sourceText = document.getElementById("game-over-page2-source-text");
+    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+    document.getElementById("game-over-page2-quote-source").style.display = "block";
+
+    // Reset score and quotes for retry
+    score = 0;
+    remainingQuotes = [...quotes];  // Reset the pool
+    document.getElementById("score").textContent = `Score: ${score}`;
+    document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
+}
+
+// Function to end the game and show the third game end screen
+function endGameScreen3() {
+    // Hide game page
+    document.getElementById("game-page").style.display = "none";
+
+    // Show game end screen 3 with final score
+    document.getElementById("game-over-page3").style.display = "block";
+
+    // Show the source button
+    const sourceText = document.getElementById("game-over-page3-source-text");
+    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+    document.getElementById("game-over-page3-quote-source").style.display = "block";
 
     // Reset score and quotes for retry
     score = 0;
@@ -110,11 +159,15 @@ document.getElementById("start-button").addEventListener("click", startGame);
 document.getElementById("lib-button").addEventListener("click", () => handleVote(true));
 document.getElementById("lie-button").addEventListener("click", () => handleVote(false));
 document.getElementById("next-button").addEventListener("click", displayRandomQuote);
-
-// Share score functionality (can be expanded)
-document.getElementById("share-score-button").addEventListener("click", () => {
+document.getElementById("share-button").addEventListener("click", () => {
     alert("Score shared! (This feature can be expanded later.)");
 });
-
-// Try again functionality
-document.getElementById("try-again-button").addEventListener("click", startGame);
+document.getElementById("retry-button").addEventListener("click", startGame);
+document.getElementById("share-button2").addEventListener("click", () => {
+    alert("Score shared! (This feature can be expanded later.)");
+});
+document.getElementById("retry-button2").addEventListener("click", startGame);
+document.getElementById("share-button3").addEventListener("click", () => {
+    alert("Score shared! (This feature can be expanded later.)");
+});
+document.getElementById("retry-button3").addEventListener("click", startGame);
