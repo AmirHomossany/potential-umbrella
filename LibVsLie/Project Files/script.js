@@ -16,6 +16,7 @@ function startGame() {
     document.getElementById("game-page").style.display = "block";  // Show game
     document.getElementById("game-over-page").style.display = "none";  // Hide game over page
     document.getElementById("game-over-page2").style.display = "none";  // Hide game end screen 2
+    document.getElementById("game-over-page3").style.display = "none";  // Hide game end screen 3
     document.getElementById("score").textContent = `Score: ${score}`;
     displayRandomQuote();
 }
