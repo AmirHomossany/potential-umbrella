@@ -1,10 +1,10 @@
 /* General Styles */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', EB Garamond;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    color: #333;
+    color: #0F2F76;
     line-height: 1.6;
 }
 
@@ -42,14 +42,9 @@ main {
 }
 
 /* Buttons */
-.buttons {
-    margin: 20px 0;
-}
-
 button {
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 20px;
-    margin: 10px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -64,27 +59,36 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Feedback Container */
+/* Feedback Container for "Correct!" Message */
 .feedback-container {
     margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    background-color: #e9f5db;
-    border: 2px solid #c8e6a8;
+    padding: 10px 20px;
+    max-width: 300px;
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
     border-radius: 10px;
-    color: #3a4d28;
+    color: #155724;
+    text-align: center;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none; /* Default hidden */
+}
+
+/* Source and Next Buttons Container */
+.source-next-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Adjusted for a larger gap between buttons */
+    margin-top: 15px;
+}
+
+/* Buttons with Consistent Styling */
+.source-next-container button {
+    width: auto; /* Dynamic width for better content fit */
+    text-align: center;
+    white-space: nowrap; /* Ensures the text stays on one line */
 }
 
 /* Source Link */
-#quote-source {
-    margin-top: 10px;
-    font-size: 16px;
-    font-style: normal;
-}
-
 #quote-source a {
     color: #2b3aa7;
     text-decoration: none;
@@ -93,6 +97,7 @@ button:hover {
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevents wrapping to keep it on one line */
 }
 
 #quote-source a:hover {
@@ -118,13 +123,6 @@ footer {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Intro and Game Pages */
-.intro-page,
-.game-page {
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Animations */

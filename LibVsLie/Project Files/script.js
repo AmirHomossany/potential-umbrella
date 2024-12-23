@@ -21,6 +21,49 @@ function startGame() {
     displayRandomQuote();
 }
 
+// Function to handle a vote
+function handleVote(userChoice) {
+    const feedbackContainer = document.getElementById("feedback-container");
+    const feedbackMessage = document.getElementById("feedback-message");
+    const quoteSource = document.getElementById("source-button");
+    const nextButton = document.getElementById("next-button");
+    const sourceNextContainer = document.querySelector('.source-next-container');
+
+    // Show feedback
+    feedbackContainer.style.display = "block";
+
+    if (userChoice === currentQuote.istrue) {
+        feedbackMessage.textContent = "Correct!";
+        score++;  // Increment score
+
+        // Show the source button if the quote is true
+        quoteSource.style.display = "inline-block";
+        quoteSource.onclick = () => window.open(currentQuote.source, '_blank');
+
+        // Update score display immediately
+        document.getElementById("score").textContent = `Score: ${score}`;
+
+        // Show the "Next" button
+        nextButton.style.display = "inline-block";
+
+        // Show the container for source and next buttons
+        sourceNextContainer.style.display = "flex";
+    } else {
+        feedbackMessage.textContent = "Incorrect!";
+        if (!currentQuote.istrue && currentQuote.fellforit) {
+            endGameScreen2(); // Direct to game end screen 2 if the answer is incorrect and fellforit is true
+        } else if (currentQuote.istrue) {
+            endGameScreen3(); // Direct to game end screen 3 if the answer is incorrect and istrue is true
+        } else {
+            endGame(); // End game if the answer is incorrect
+        }
+    }
+
+    // Hide the "Real" and "Fake" buttons
+    document.getElementById("lib-button").style.display = "none";
+    document.getElementById("lie-button").style.display = "none";
+}
+
 // Function to display a random quote
 function displayRandomQuote() {
     if (remainingQuotes.length === 0) {
@@ -40,52 +83,12 @@ function displayRandomQuote() {
 
     // Hide feedback and next button
     document.getElementById("feedback-container").style.display = "none";
-    document.getElementById("quote-source").style.display = "none";
+    document.getElementById("source-button").style.display = "none";
     document.getElementById("next-button").style.display = "none";
+    document.querySelector('.source-next-container').style.display = "none";
 
     // Update remaining quotes
     document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
-}
-
-// Function to handle a vote
-function handleVote(userChoice) {
-    const feedbackContainer = document.getElementById("feedback-container");
-    const feedbackMessage = document.getElementById("feedback-message");
-    const quoteSource = document.getElementById("quote-source");
-    const sourceText = document.getElementById("source-text");
-
-    // Show feedback
-    feedbackContainer.style.display = "block";
-
-    if (userChoice === currentQuote.istrue) {
-        feedbackMessage.textContent = "Correct!";
-        score++;  // Increment score
-
-        // Create a button that hyperlinks to the source if the quote is true
-        if (currentQuote.istrue) {
-            sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
-            quoteSource.style.display = "block";
-        }
-
-        // Update score display immediately
-        document.getElementById("score").textContent = `Score: ${score}`;
-
-        // Show the "Next" button
-        document.getElementById("next-button").style.display = "inline-block";
-    } else {
-        feedbackMessage.textContent = "Incorrect!";
-        if (!currentQuote.istrue && currentQuote.fellforit) {
-            endGameScreen2(); // Direct to game end screen 2 if the answer is incorrect and fellforit is true
-        } else if (currentQuote.istrue) {
-            endGameScreen3(); // Direct to game end screen 3 if the answer is incorrect and istrue is true
-        } else {
-            endGame(); // End game if the answer is incorrect
-        }
-    }
-
-    // Hide the "Real" and "Fake" buttons
-    document.getElementById("lib-button").style.display = "none";
-    document.getElementById("lie-button").style.display = "none";
 }
 
 // Function to end the game and show the score page
@@ -100,7 +103,7 @@ function endGame() {
     // If the current quote is true, show the source button
     if (currentQuote.istrue) {
         const sourceText = document.getElementById("game-over-source-text");
-        sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+        sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Source</button>`;
         document.getElementById("game-over-quote-source").style.display = "block";
     } else {
         // Handle the case where istrue: false and fellforit: false
@@ -125,7 +128,7 @@ function endGameScreen2() {
 
     // Show the source button
     const sourceText = document.getElementById("game-over-page2-source-text");
-    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Source</button>`;
     document.getElementById("game-over-page2-quote-source").style.display = "block";
 
     // Reset score and quotes for retry
@@ -145,7 +148,7 @@ function endGameScreen3() {
 
     // Show the source button
     const sourceText = document.getElementById("game-over-page3-source-text");
-    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
+    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Source</button>`;
     document.getElementById("game-over-page3-quote-source").style.display = "block";
 
     // Reset score and quotes for retry
