@@ -12,7 +12,7 @@ body {
 header {
     background-color: #ae212f;
     color: white;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -36,14 +36,10 @@ main {
     border-radius: 10px;
     font-size: 22px;
     font-style: italic;
-    color: #264653;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Buttons */
 button {
-    font-size: 16px;
     padding: 10px 20px;
     cursor: pointer;
     border: none;
@@ -63,7 +59,7 @@ button:hover {
 .feedback-container {
     margin: 20px auto;
     padding: 10px 20px;
-    max-width: 300px;
+    max-width: 150px;
     background-color: #d4edda;
     border: 2px solid #c3e6cb;
     border-radius: 10px;
@@ -77,15 +73,23 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* Adjusted for a larger gap between buttons */
-    margin-top: 15px;
+    margin-top: 1px;
+    gap: 10px; /* Space between the buttons */
 }
 
-/* Buttons with Consistent Styling */
-.source-next-container button {
-    width: auto; /* Dynamic width for better content fit */
-    text-align: center;
-    white-space: nowrap; /* Ensures the text stays on one line */
+/* Adjusted Styling for Next Button */
+#next-button {
+    font-size: 18px; /* Larger font size for Next button */
+    padding: 12px 24px; /* Larger padding for Next button */
+    background-color: #2b3aa7; /* Keep the original color for Next button */
+}
+
+/* Source Button - New Smaller Size and Different Color */
+#source-button {
+    background-color: #17a2b8; /* Blue-green color for Source button */
+    font-size: 14px; /* Smaller font size */
+    padding: 8px 16px; /* Smaller padding for Source button */
+    margin-top: 12x; /* Space above the Source button */
 }
 
 /* Source Link */
@@ -118,21 +122,8 @@ footer {
     background-color: #ae212f;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 4px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

@@ -34,18 +34,18 @@
             <div id="feedback-container" class="feedback-container" style="display: none;">
                 <p id="feedback-message"></p>
             </div>
-            <div class="source-next-container" style="display: none;">
-                <div class="source-next-inner">
-                    <button id="source-button">Source</button>
-                    <button id="next-button">Next</button>
-                </div>
+            <div id="next-container" style="display: none;">
+                <button id="next-button">Next</button>
             </div>
             <div id="score-board" class="score-board">
                 <p id="score">Score: 0/0</p>
-            </div>                     
+            </div>
+            <div id="source-container" style="display: none;">
+                <button id="source-button">Go to Source</button>
+            </div>
         </div>
 
-        <!-- Game Over Page (Initially Hidden) -->
+        <!-- Game Over Pages: Remove Source Button from these pages -->
         <div id="game-over-page" class="game-over-page" style="display: none;">
             <h2>Game Over! We Made it All Up!</h2>
             <p id="final-score">Your Score: 0</p>
@@ -65,6 +65,9 @@
             </div>
             <button id="share-button2">Share Score</button>
             <button id="retry-button2">Try Again</button>
+            <div id="source-container2" style="display: none; margin-top: 5px;">
+                <button id="source-button2">Go to Source</button>
+            </div>
         </div>
 
         <!-- Game Over Page 3 (Initially Hidden) -->
@@ -75,8 +78,11 @@
             </div>
             <button id="share-button3">Share Score</button>
             <button id="retry-button3">Try Again</button>
+            <div id="source-container3" style="display: none; margin-top: 5px;">
+                <button id="source-button3">Go to Source</button>
+            </div>
         </div>
-</div>
+        </div>
     </main>
 
     <footer>

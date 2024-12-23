@@ -27,7 +27,8 @@ function handleVote(userChoice) {
     const feedbackMessage = document.getElementById("feedback-message");
     const quoteSource = document.getElementById("source-button");
     const nextButton = document.getElementById("next-button");
-    const sourceNextContainer = document.querySelector('.source-next-container');
+    const sourceContainer = document.getElementById("source-container");
+    const nextContainer = document.getElementById("next-container");
 
     // Show feedback
     feedbackContainer.style.display = "block";
@@ -45,9 +46,10 @@ function handleVote(userChoice) {
 
         // Show the "Next" button
         nextButton.style.display = "inline-block";
+        nextContainer.style.display = "block";
 
-        // Show the container for source and next buttons
-        sourceNextContainer.style.display = "flex";
+        // Show the container for source button
+        sourceContainer.style.display = "block";
     } else {
         feedbackMessage.textContent = "Incorrect!";
         if (!currentQuote.istrue && currentQuote.fellforit) {
@@ -81,11 +83,12 @@ function displayRandomQuote() {
     document.getElementById("lib-button").style.display = "inline-block";
     document.getElementById("lie-button").style.display = "inline-block";
 
-    // Hide feedback and next button
+    // Hide feedback, next button, and source button
     document.getElementById("feedback-container").style.display = "none";
     document.getElementById("source-button").style.display = "none";
     document.getElementById("next-button").style.display = "none";
-    document.querySelector('.source-next-container').style.display = "none";
+    document.getElementById("source-container").style.display = "none";
+    document.getElementById("next-container").style.display = "none";
 
     // Update remaining quotes
     document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
@@ -100,10 +103,13 @@ function endGame() {
     document.getElementById("game-over-page").style.display = "block";
     document.getElementById("final-score").textContent = `Your Score: ${score}`;
 
+    // Hide the source button
+    document.getElementById("source-button").style.display = "none";
+
     // If the current quote is true, show the source button
     if (currentQuote.istrue) {
         const sourceText = document.getElementById("game-over-source-text");
-        sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Source</button>`;
+        sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
         document.getElementById("game-over-quote-source").style.display = "block";
     } else {
         // Handle the case where istrue: false and fellforit: false
@@ -128,8 +134,9 @@ function endGameScreen2() {
 
     // Show the source button
     const sourceText = document.getElementById("game-over-page2-source-text");
-    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Source</button>`;
+    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
     document.getElementById("game-over-page2-quote-source").style.display = "block";
+    document.getElementById("source-container2").style.display = "block";
 
     // Reset score and quotes for retry
     score = 0;
@@ -148,8 +155,9 @@ function endGameScreen3() {
 
     // Show the source button
     const sourceText = document.getElementById("game-over-page3-source-text");
-    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Source</button>`;
+    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
     document.getElementById("game-over-page3-quote-source").style.display = "block";
+    document.getElementById("source-container3").style.display = "block";
 
     // Reset score and quotes for retry
     score = 0;
