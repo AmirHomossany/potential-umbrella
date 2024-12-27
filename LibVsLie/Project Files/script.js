@@ -132,17 +132,15 @@ function endGameScreen2() {
     document.getElementById("game-over-page2").style.display = "block";
     document.getElementById("baited-text").textContent = currentQuote.baited;
 
-    // Show the source button
-    const sourceText = document.getElementById("game-over-page2-source-text");
-    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
-    document.getElementById("game-over-page2-quote-source").style.display = "block";
-    document.getElementById("source-container2").style.display = "block";
+    // Display the source button and set functionality
+    const sourceContainer2 = document.getElementById("source-container2");
+    sourceContainer2.style.display = "block";
+    const sourceButton2 = document.getElementById("source-button2");
+    sourceButton2.onclick = () => window.open(currentQuote.source, '_blank');
 
     // Reset score and quotes for retry
     score = 0;
-    remainingQuotes = [...quotes];  // Reset the pool
-    document.getElementById("score").textContent = `Score: ${score}`;
-    document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
+    remainingQuotes = [...quotes];
 }
 
 // Function to end the game and show the third game end screen
@@ -153,17 +151,15 @@ function endGameScreen3() {
     // Show game end screen 3 with final score
     document.getElementById("game-over-page3").style.display = "block";
 
-    // Show the source button
-    const sourceText = document.getElementById("game-over-page3-source-text");
-    sourceText.innerHTML = `<button onclick="window.open('${currentQuote.source}', '_blank')">Go to Source</button>`;
-    document.getElementById("game-over-page3-quote-source").style.display = "block";
-    document.getElementById("source-container3").style.display = "block";
+    // Display the source button and set functionality
+    const sourceContainer3 = document.getElementById("source-container3");
+    sourceContainer3.style.display = "block";
+    const sourceButton3 = document.getElementById("source-button3");
+    sourceButton3.onclick = () => window.open(currentQuote.source, '_blank');
 
     // Reset score and quotes for retry
     score = 0;
-    remainingQuotes = [...quotes];  // Reset the pool
-    document.getElementById("score").textContent = `Score: ${score}`;
-    document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
+    remainingQuotes = [...quotes];
 }
 
 // Event listeners
