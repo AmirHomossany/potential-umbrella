@@ -1,14 +1,14 @@
 // Repository of quotes with sources
 const quotes = [
-    { text: "It is not migration that is the problem, but nationalism, white supremacy and the highly policed borders that require dangerous border crossings.", source: "https://www.tandfonline.com/doi/full/10.1080/01419870.2021.1909743?", istrue: true, fellforit: false, baited: " " },
-    { text: "Ultimately, if expanded, a feminist commons could replace the exclusionary format of nation-states", source: "https://signsjournal.org/covid/ticktin/", istrue: true, fellforit: false, baited: " " },
-    { text: "The central intent of policing is to surveil, terrorize, capture, and kill marginalized populations, specifically Black folks.", source: "https://level.medium.com/the-demand-for-abolition-979c759ff6f", istrue: true, fellforit: false, baited: " " },
-    { text: "In much of popular culture Black officers are no longer race men at all — but, rather, stand-ins for the very anti-Black violence directed at Black communities.", source: "https://level.medium.com/pop-culture-helped-turn-police-officers-into-rock-stars-and-black-folks-into-criminals-1ac9e3faffa1", istrue: true, fellforit: false, baited: " " },
+    { text: "Migration isn’t the issue; nationalism and white supremacy are.", source: "https://www.tandfonline.com/doi/full/10.1080/01419870.2021.1909743?", istrue: true, fellforit: false, baited: " " },
+    { text: "A feminist state could replace nation-states.", source: "https://signsjournal.org/covid/ticktin/", istrue: true, fellforit: false, baited: " " },
+    { text: "Policing exists to terrorize and kill marginalized groups.", source: "https://level.medium.com/the-demand-for-abolition-979c759ff6f", istrue: true, fellforit: false, baited: " " },
+    { text: "Black officers represent anti-Black violence in pop culture.", source: "https://level.medium.com/pop-culture-helped-turn-police-officers-into-rock-stars-and-black-folks-into-criminals-1ac9e3faffa1", istrue: true, fellforit: false, baited: " " },
     { text: "Milk is a Symbol of Colonial Oppression: Activists Demand Rebranding of Dairy Products", source: "Fake", istrue: false },
     { text: "Universities to Implement Trigger Warnings for Shakespeare", source: "https://www.bbc.co.uk/news/uk-england-cambridgeshire-41678937", istrue: true, fellforit: false, baited: " " },
-    { text: "Stop Saying 'Good Morning': Study Finds Greeting Reinforces Capitalist Productivity Norms", source: "Fake", istrue: false, fellforit: false, baited: " " },
+    { text: "'Good Morning' reinforces capitalist norms, study claims.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "Teaching of math as an objective science disregards cultural contributions and prioritizes Western ways of knowing.", source: "Fake", istrue: false, fellforit: false, baited: " " },
-    { text: "Children should be taught that fairy tales like 'Goldilocks' perpetuate harmful ideas of property and entitlement, which are rooted in settler-colonial ideologies.", source: "Fake", istrue: false, fellforit: false, baited: " " },
+    { text: "'Goldilocks' perpetuates harmful settler-colonial ideas.", source: "Fake", istrue: false, fellforit: false, baited: " " },
 ];
 
 // Variables for game tracking
