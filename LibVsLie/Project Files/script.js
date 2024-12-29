@@ -9,6 +9,9 @@ const quotes = [
     { text: "'Good Morning' reinforces capitalist norms, study claims.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "Teaching of math as an objective science disregards cultural contributions and prioritizes Western ways of knowing.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "'Goldilocks' perpetuates harmful settler-colonial ideas.", source: "Fake", istrue: false, fellforit: false, baited: " " },
+    { text: "Climate Change Data Manipulated to Show Warming", source: "https://www.lse.ac.uk/granthaminstitute/news/the-times-fox-news-and-breitbart-still-promoting-fake-news-about-climate-change/?utm_source=chatgpt.com", istrue: false, fellforit: true, baited: "This is Fake! Breitbart Shared Dalse Data!" },
+    { text: "Muslim No-Go Zones Dominate London", source: "https://www.theguardian.com/world/2024/mar/02/how-no-go-zone-myth-spread-from-fringes-to-mainstream-uk-politics", istrue: false, fellforit: true, baited: "This is Fake! The DailyMail Took Some Artistic Liberties."},
+    { text: "Cows to Be Fitted With VR Headsets to Experience Life as Humans", source: "fake", istrue: false, fellforit: false, baited: " " },
 ];
 
 // Variables for game tracking
