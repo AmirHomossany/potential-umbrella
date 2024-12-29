@@ -33,6 +33,7 @@ function startGame() {
     document.getElementById("game-over-page").style.display = "none";  // Hide game over page
     document.getElementById("game-over-page2").style.display = "none";  // Hide game end screen 2
     document.getElementById("game-over-page3").style.display = "none";  // Hide game end screen 3
+    score = 0; // Reset score at the start of the game
     document.getElementById("score").textContent = `Score: ${score}`;
     displayRandomQuote();
 }
@@ -133,7 +134,6 @@ function endGame() {
     }
 
     // Reset score and quotes for retry
-    score = 0;
     remainingQuotes = [...quotes];  // Reset the pool
     document.getElementById("score").textContent = `Score: ${score}`;
     document.getElementById("remaining-quotes").textContent = `Remaining Quotes: ${remainingQuotes.length}`;
@@ -155,7 +155,6 @@ function endGameScreen2() {
     sourceButton2.onclick = () => window.open(currentQuote.source, '_blank');
 
     // Reset score and quotes for retry
-    score = 0;
     remainingQuotes = [...quotes];
 }
 
@@ -174,24 +173,69 @@ function endGameScreen3() {
     sourceButton3.onclick = () => window.open(currentQuote.source, '_blank');
 
     // Reset score and quotes for retry
-    score = 0;
     remainingQuotes = [...quotes];
 }
+
+// Share button functionality
+document.getElementById("share-button").addEventListener("click", function () {
+    console.log("Score when sharing button clicked:", score); // Debug score before sharing
+
+    const shareMessage = `I just scored ${score} points on Lib vs Lie! Can you beat me? Play now: https://libvslie.com`;
+
+    navigator.clipboard.writeText(shareMessage).then(() => {
+        const shareButton = document.getElementById("share-button");
+        shareButton.textContent = "Message Copied!";
+
+        setTimeout(() => {
+            shareButton.textContent = "Share";
+        }, 3000);
+    }).catch((err) => {
+        console.error("Failed to copy text to clipboard:", err);
+    });
+});
+
+
+document.getElementById("share-button2").addEventListener("click", function () {
+    console.log("Score when sharing button clicked:", score); // Debug score before sharing
+
+    const shareMessage = `I just scored ${score} points on Lib vs Lie! Can you beat me? Play now: https://libvslie.com`;
+
+    navigator.clipboard.writeText(shareMessage).then(() => {
+        const shareButton = document.getElementById("share-button2");
+        shareButton.textContent = "Message Copied!";
+
+        setTimeout(() => {
+            shareButton.textContent = "Share";
+        }, 3000);
+    }).catch((err) => {
+        console.error("Failed to copy text to clipboard:", err);
+    });
+});
+
+
+document.getElementById("share-button3").addEventListener("click", function () {
+    console.log("Score when sharing button clicked:", score); // Debug score before sharing
+
+    const shareMessage = `I just scored ${score} points on Lib vs Lie! Can you beat me? Play now: https://libvslie.com`;
+
+    navigator.clipboard.writeText(shareMessage).then(() => {
+        const shareButton = document.getElementById("share-button3");
+        shareButton.textContent = "Message Copied!";
+
+        setTimeout(() => {
+            shareButton.textContent = "Share";
+        }, 3000);
+    }).catch((err) => {
+        console.error("Failed to copy text to clipboard:", err);
+    });
+});
+
 
 // Event listeners
 document.getElementById("start-button").addEventListener("click", startGame);
 document.getElementById("lib-button").addEventListener("click", () => handleVote(true));
 document.getElementById("lie-button").addEventListener("click", () => handleVote(false));
 document.getElementById("next-button").addEventListener("click", displayRandomQuote);
-document.getElementById("share-button").addEventListener("click", () => {
-    alert("Score shared! (This feature can be expanded later.)");
-});
 document.getElementById("retry-button").addEventListener("click", startGame);
-document.getElementById("share-button2").addEventListener("click", () => {
-    alert("Score shared! (This feature can be expanded later.)");
-});
 document.getElementById("retry-button2").addEventListener("click", startGame);
-document.getElementById("share-button3").addEventListener("click", () => {
-    alert("Score shared! (This feature can be expanded later.)");
-});
 document.getElementById("retry-button3").addEventListener("click", startGame);
