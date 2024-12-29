@@ -10,7 +10,7 @@ const quotes = [
     { text: "Teaching of math as an objective science disregards cultural contributions and prioritizes Western ways of knowing.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "'Goldilocks' perpetuates harmful settler-colonial ideas.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "Climate Change Data Manipulated to Show Warming", source: "https://www.lse.ac.uk/granthaminstitute/news/the-times-fox-news-and-breitbart-still-promoting-fake-news-about-climate-change/?utm_source=chatgpt.com", istrue: false, fellforit: true, baited: "This is Fake! Breitbart Shared Dalse Data!" },
-    { text: "Muslim No-Go Zones Dominate London", source: "www.https://theweek.com/speedreads/534325/fox-news-apologizes-multiple-false-claims-about-european-muslims", istrue: false, fellforit: true, baited: "Don't Worry, Fox News fell for this as well!"},
+    { text: "Muslim No-Go Zones Dominate London", source: "https://theweek.com/speedreads/534325/fox-news-apologizes-multiple-false-claims-about-european-muslims", istrue: false, fellforit: true, baited: "Don't Worry, Fox News fell for this as well!"},
     { text: "Cows to Be Fitted With VR Headsets to Experience Life as Humans", source: "fake", istrue: false, fellforit: false, baited: " " },
     { text: "Dutch Government Declares Meat-Eating a Hate Crime", source: "fake", istrue: false, fellforit: false, baited: " " },
     { text: "Study: White People Are More Likely to Be Attacked by Sharks", source: "fake", istrue: false, fellforit: false, baited: " " },
