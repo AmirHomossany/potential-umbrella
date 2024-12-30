@@ -1,7 +1,6 @@
 // Repository of quotes with sources
 const quotes = [
     { text: "Migration isn’t the issue; nationalism and white supremacy are.", source: "https://www.tandfonline.com/doi/full/10.1080/01419870.2021.1909743?", istrue: true, fellforit: false, baited: " " },
-    { text: "A feminist state could replace nation-states.", source: "https://signsjournal.org/covid/ticktin/", istrue: true, fellforit: false, baited: " " },
     { text: "Policing exists to terrorize and kill marginalized groups.", source: "https://level.medium.com/the-demand-for-abolition-979c759ff6f", istrue: true, fellforit: false, baited: " " },
     { text: "Black officers represent anti-Black violence in pop culture.", source: "https://level.medium.com/pop-culture-helped-turn-police-officers-into-rock-stars-and-black-folks-into-criminals-1ac9e3faffa1", istrue: true, fellforit: false, baited: " " },
     { text: "Milk is a Symbol of Colonial Oppression: Activists Demand Rebranding of Dairy Products", source: "Fake", istrue: false },
