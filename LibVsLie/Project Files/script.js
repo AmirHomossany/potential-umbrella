@@ -6,7 +6,7 @@ const quotes = [
     { text: "Milk is a Symbol of Colonial Oppression: Activists Demand Rebranding of Dairy Products", source: "Fake", istrue: false },
     { text: "Universities to Implement Trigger Warnings for Shakespeare", source: "https://www.bbc.co.uk/news/uk-england-cambridgeshire-41678937", istrue: true, fellforit: false, baited: " " },
     { text: "'Good Morning' reinforces capitalist norms, study claims.", source: "Fake", istrue: false, fellforit: false, baited: " " },
-    { text: "Teaching of math as an objective science disregards cultural contributions and prioritizes Western ways of knowing.", source: "Fake", istrue: false, fellforit: false, baited: " " },
+    { text: "Math is taught as a cold, hard fact, erasing diverse cultures and forcing Western ideas as the only truth.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "'Goldilocks' perpetuates harmful settler-colonial ideas.", source: "Fake", istrue: false, fellforit: false, baited: " " },
     { text: "Climate Change Data Manipulated to Show Warming", source: "https://www.lse.ac.uk/granthaminstitute/news/the-times-fox-news-and-breitbart-still-promoting-fake-news-about-climate-change/?utm_source=chatgpt.com", istrue: false, fellforit: true, baited: "This is Fake! Breitbart Shared Dalse Data!" },
     { text: "Muslim No-Go Zones Dominate London", source: "https://theweek.com/speedreads/534325/fox-news-apologizes-multiple-false-claims-about-european-muslims", istrue: false, fellforit: true, baited: "Don't Worry, Fox News fell for this as well!"},
